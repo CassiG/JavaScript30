@@ -8,6 +8,7 @@ body {
   width: 25rem;
   height: 25rem;
   margin: 100px auto;
+  padding: 10px;
 }
 
 .clock-face {
@@ -18,13 +19,14 @@ body {
 
 .hand {
   background-color: black;
-  width: 45%;
+  width: 50%;
   height: 5px;
   position: absolute;
   top: 50%;
-  margin: 0px 0 0 10px;
   transform-origin: 100%;
   transition: all 0.5s;
+  -transition-timing-function: cubic-bezier(.68,-0.55,.27,1.55);
+  -webkit-transition-timing-function: cubic-bezier(.68,-0.55,.27,1.55);
   transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
 }
