@@ -2,3 +2,42 @@ body {
   background: url("../img/concert-photo.jpg");
   background-size: cover;
 }
+
+.keys {
+  margin: 25rem auto;
+  text-align: center;
+}
+
+.key {
+  display: inline-block;
+  background: rgba(0, 0, 0, .2);
+  width: 3em;
+  height: 2.25rem;
+  padding: 15px;
+  margin: 0 10px;
+  border: 5px solid #000;
+  border-radius: 5%;
+  transition: all .07s;
+}
+
+
+.key kbd {
+  color: #fff;
+  font-size: 2em;
+}
+
+.sound {
+  display: block;
+  text-transform: uppercase;
+  color: #D9C245;
+  font-size: .6em;
+  font-family: sans-serif;
+  margin: 5px 0;
+}
+
+.playing {
+  border-color: #D9C245;
+  box-shadow: 0px 0px 10px #D9C245;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+}
