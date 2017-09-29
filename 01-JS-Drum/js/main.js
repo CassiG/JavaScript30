@@ -4,6 +4,7 @@ window.addEventListener('keydown', function(event){
   if(!audio) {
     return;
   } else {
+    audio.currentTime = 0 // this rewinds the audio to the start so the program won't wait until it's done if you hit the key before that.
     audio.play();
     key.classList.add('playing')
   };
