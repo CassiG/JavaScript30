@@ -1,3 +1,27 @@
+/*
+CSS Variable Section
+To declare a CSS variable, you have to declare it on an element.
+Root is the highest level you can go - similar to HTML level
+*/
+
+:root {
+  --base: #ffc600;
+  --spacing: 10px;
+  --blur: 10px;
+}
+
+img {
+  padding: var(--spacing);
+  background: var(--base);
+  filter: blur(var(--blur));
+}
+
+.highlighter {
+  color: var(--base);
+}
+
+/* Base CSS Style */
+
 body {
   text-align: center;
   font-family: 'helvetica neue', sans-serif;
