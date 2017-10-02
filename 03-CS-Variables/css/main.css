@@ -7,7 +7,7 @@ Root is the highest level you can go - similar to HTML level
 :root {
   --base: #ffc600;
   --spacing: 10px;
-  --blur: 10px;
+  --blur: 0;
 }
 
 img {
