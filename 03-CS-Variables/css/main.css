@@ -3,6 +3,7 @@ body {
   font-family: 'helvetica neue', sans-serif;
   color: white;
   background-color: #193549;
+  font-size: 20px;
 }
 
 .controls {
@@ -12,8 +13,26 @@ body {
 label {
   display: block;
   padding: 10px;
+  text-transform: uppercase;
+  font-weight: 100;
 }
 
 img {
   width: 100%;
+}
+
+
+@media (min-width: 600px) {
+  body {
+    font-size: 30px;
+  }
+
+  label {
+    display: inline-block;
+  }
+
+  img {
+    width: auto;
+  }
+
 }
