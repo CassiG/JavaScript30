@@ -9,16 +9,9 @@ const inputs = document.querySelectorAll('.controls input');
 
 function handleUpdate() {
   const dataSize = this.dataset.sizing || '';
-  if(this.value ==10) {
-    console.log('hello')
-  }
-
   document.documentElement.style.setProperty(`--${this.name}`, this.value + dataSize)
 }
 
-function clickUpdate() {
-  console.log(this);
-}
 // Iterate over all the inputs on the page (the sliders and the color changer)
 // When you are on a node, listen for a change (when the slider is moved or new color is picked)
 // Also listen for a mouse move so you can track the sliding motion of the slider
@@ -26,4 +19,3 @@ function clickUpdate() {
 
 inputs.forEach(input => input.addEventListener('change', handleUpdate));
 inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
-inputs.forEach(input => input.addEventListener('mouseup', clickUpdate));
