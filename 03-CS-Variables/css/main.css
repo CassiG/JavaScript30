@@ -1,0 +1,19 @@
+body {
+  text-align: center;
+  font-family: 'helvetica neue', sans-serif;
+  color: white;
+  background-color: #193549;
+}
+
+.controls {
+  margin-bottom: 50px;
+}
+
+label {
+  display: block;
+  padding: 10px;
+}
+
+img {
+  width: 100%;
+}
