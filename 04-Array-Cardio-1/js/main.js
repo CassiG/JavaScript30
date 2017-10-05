@@ -19,28 +19,44 @@ const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
-
 const fifteen = inventors.filter(inventor => inventor.year <= 1599 && inventor.year >= 1500);
-html = '';
+fifteenHTML = '';
 for(i = 0; i < fifteen.length; i++) {
-  html += `<li>${fifteen[i].first} ${fifteen[i].last}, ${fifteen[i].year} - ${fifteen[i].passed}</li>`
+  fifteenHTML += `<li>${fifteen[i].first} ${fifteen[i].last}, ${fifteen[i].year} - ${fifteen[i].passed}</li>`
 }
-document.getElementById('fifteen').innerHTML = html
+document.getElementById('fifteen').innerHTML = fifteenHTML
+
 // Array.prototype.map()
 // 2. Give us an array of the inventors' first and last names
-
 const firstLast = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
-console.log(firstLast);
+firstLastHTML = '';
+for(i = 0; i < firstLast.length; i++) {
+  firstLastHTML += `<li>${firstLast[i]}</li>`;
+}
+document.getElementById('inventor-names').innerHTML = firstLastHTML;
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
-
 const birthdaySort = inventors.sort(function(a, b){
-  return a.birthday - b.birthday;
+  return a.year - b.year;
 });
-console.log(birthdaySort);
+
+console.log(birthdaySort)
+
+birthdaySortHTML = '';
+for(i = 0; i < birthdaySort.length; i++) {
+  birthdaySortHTML += `<li>${birthdaySort[i].first} ${birthdaySort[i].last}, ${birthdaySort[i].year} - ${birthdaySort[i].passed}</li>`
+}
+document.getElementById('birthday').innerHTML = birthdaySortHTML;
+
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live?
+const allYears = inventors.reduce((total, inventor) => {
+      return total + (inventor.passed - inventor.year);
+    }, 0);
+
+document.getElementById('years').innerHTML = `${allYears} years`;
+
 // 5. Sort the inventors by years lived
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
