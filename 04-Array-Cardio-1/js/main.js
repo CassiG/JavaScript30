@@ -20,7 +20,8 @@ const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
   const fifteen = inventors.filter(inventor => inventor.year <= 1599 && inventor.year >= 1500);
-  fifteenHTML = '';
+
+  let fifteenHTML = '';
   for(i = 0; i < fifteen.length; i++) {
     fifteenHTML += `<li>${fifteen[i].first} ${fifteen[i].last}, ${fifteen[i].year} - ${fifteen[i].passed}</li>`
   }
@@ -29,7 +30,8 @@ const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick
 // Array.prototype.map()
 // 2. Give us an array of the inventors' first and last names
   const firstLast = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
-  firstLastHTML = '';
+
+  let firstLastHTML = '';
   for(i = 0; i < firstLast.length; i++) {
     firstLastHTML += `<li>${firstLast[i]}</li>`;
   }
@@ -43,7 +45,7 @@ const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick
 
   console.log(birthdaySort)
 
-  birthdaySortHTML = '';
+  let birthdaySortHTML = '';
   for(i = 0; i < birthdaySort.length; i++) {
     birthdaySortHTML += `<li>${birthdaySort[i].first} ${birthdaySort[i].last}, ${birthdaySort[i].year} - ${birthdaySort[i].passed}</li>`
   }
@@ -64,28 +66,41 @@ document.getElementById('birthday').innerHTML = birthdaySortHTML;
     return  oldest > next ? -1 : 1;
   })
 
-yearsLivedHTML= '';
-for(i = 0; i < yearsLived.length; i++) {
-  yearsLivedHTML += `<li>${yearsLived[i].first} ${yearsLived[i].last} - ${yearsLived[i].passed - yearsLived[i].year} years</li>`
-}
+  let yearsLivedHTML= '';
+  for(i = 0; i < yearsLived.length; i++) {
+    yearsLivedHTML += `<li>${yearsLived[i].first} ${yearsLived[i].last} - ${yearsLived[i].passed - yearsLived[i].year} years</li>`
+  }
 
-document.getElementById('years-lived').innerHTML = yearsLivedHTML;
+  document.getElementById('years-lived').innerHTML = yearsLivedHTML;
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 // Run these commands in console on this page ^
 
-  const category = document.querySelector('.mw-category');
-  const links = Array.from(category.querySelectorAll('a'));
-
-  const streetNames = links.map(linkText => { return linkText.textContent; })
-  const de = streetNames.filter( de => { return de.includes('de'); } )
-
-  console.log(de);
-
+  // const category = document.querySelector('.mw-category');
+  // const links = Array.from(category.querySelectorAll('a'));
+  //
+  // const streetNames = links.map(linkText => { return linkText.textContent; })
+  // const de = streetNames.filter( de => { return de.includes('de'); } )
+  //
+  // console.log(de);
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
+
+const peopleSort = people.sort((lastPerson, nextPerson) => {
+  const[aLast, aFirst] = lastPerson.split(', ');
+  const[bLast, bFirst] = nextPerson.split(', ');
+
+  return nextPerson > lastPerson ? -1 : 1;
+})
+
+let personList = '';
+for (i = 0; i < peopleSort.length; i ++) {
+  personList += `<li>${peopleSort[i]}</li>`
+}
+
+document.getElementById('people').innerHTML = personList;
 // 8. Reduce Exercise
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
