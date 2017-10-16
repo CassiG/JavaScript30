@@ -101,6 +101,18 @@ for (i = 0; i < peopleSort.length; i ++) {
 }
 
 document.getElementById('people').innerHTML = personList;
+
 // 8. Reduce Exercise
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+const countedData = data.reduce((allData, dataItem) => {
+  if (dataItem in allData) {
+    allData[dataItem]++;
+  } else {
+    allData[dataItem] = 1;
+  }
+  return allData;
+}, {});
+
+console.log(countedData);
