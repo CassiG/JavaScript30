@@ -70,8 +70,20 @@ for(i = 0; i < yearsLived.length; i++) {
 }
 
 document.getElementById('years-lived').innerHTML = yearsLivedHTML;
+
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+// Run these commands in console on this page ^
+
+  const category = document.querySelector('.mw-category');
+  const links = Array.from(category.querySelectorAll('a'));
+
+  const streetNames = links.map(linkText => { return linkText.textContent; })
+  const de = streetNames.filter( de => { return de.includes('de'); } )
+
+  console.log(de);
+
+
 // 7. sort Exercise
 // Sort the people alphabetically by last name
 // 8. Reduce Exercise
